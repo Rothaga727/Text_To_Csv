@@ -26,7 +26,10 @@ def send_to_spreadsheet(argv):
         print "Click and drag a properly formatted .txt onto the .exe"
         return
 
-    if argv[1][-4:] != ".txt":
+    try:     
+        if argv[1][-4:] != ".txt":
+            sendback()
+    except TypeError:
         sendback()
         
     else:
