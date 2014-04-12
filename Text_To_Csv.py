@@ -21,17 +21,21 @@ header = ["Item ID",
 
 # Opens the .csv (Creates if it doesn't exist) and writes the data
 def send_to_spreadsheet(argv):
-    # Opens file and creates headers
+
+    # Error message and break
     def sendback():
         print "Click and drag a properly formatted .txt onto the .exe"
         return
 
+    # Error handling
     try:     
         if argv[1][-4:] != ".txt":
             sendback()
     except TypeError:
         sendback()
-        
+
+
+    # Opens file and creates headers
     else:
         filename = str(argv[1][:-4])
         with open(filename+".csv", "wb") as f:
